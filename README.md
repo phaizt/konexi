@@ -35,7 +35,7 @@ This is a simple Next.js app integrated with Supabase for authentication. Below 
    Open your browser and navigate to [http://localhost:3000](http://localhost:3000) to see the app running locally.
 
 5. **Deployed in Vercel**
-   Open your browser and navigate to [https://konexi-nine.vercel.app/](https://konexi-nine.vercel.app/) to see the app running locally.
+   Open your browser and navigate to [https://konexi-7300o0gt3-phaizts-projects.vercel.app/](https://konexi-7300o0gt3-phaizts-projects.vercel.app/) to see the app running locally.
 
 ---
 
