@@ -1,7 +1,7 @@
 "use client";
 
-import { checkAuth } from "@/app/lib/auth/checkAuth";
-import { createClient } from "@/app/lib/supabase/client";
+import { checkAuth } from "@/lib/auth/checkAuth";
+import { createClient } from "@/lib/supabase/client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
@@ -41,7 +41,7 @@ export default function JobDetailsPage() {
       <main className="max-w-2xl mx-auto mt-10 p-6">
         <p className="text-red-600 font-medium">Job not found.</p>
         <Link
-          href="/jobs"
+          href="/"
           className="text-blue-600 underline mt-4 inline-block"
         >
           Back to listings
@@ -63,7 +63,7 @@ export default function JobDetailsPage() {
 
       <div className="mt-6">
         <Link
-          href="/jobs"
+          href="/"
           className="bg-gray-200 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors"
         >
           Back to Listings

@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { createClient } from "@/app/lib/supabase/client";
-import { checkAuth } from "@/app/lib/auth/checkAuth";
+import { createClient } from "@/lib/supabase/client";
+import { checkAuth } from "@/lib/auth/checkAuth";
 import { redirect } from "next/navigation";
 
 export default function NewJobPage() {

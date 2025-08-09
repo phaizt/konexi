@@ -1,4 +1,4 @@
-import { createClient } from "@/app/lib/supabase/client";
+import { createClient } from "@/lib/supabase/client";
 import { redirect } from "next/navigation";
 
 export async function checkAuth({ redirectTo = "/login" } = {}) {

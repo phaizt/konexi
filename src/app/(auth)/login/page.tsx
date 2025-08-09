@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { createClient } from "@/app/lib/supabase/client";
+import { createClient } from "@/lib/supabase/client";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
@@ -26,7 +26,7 @@ export default function LoginPage() {
 
     if (error) return setError(error.message);
 
-    localStorage.setItem("user_id", JSON.stringify(data.user.id));
+    localStorage.setItem("user_id", data.user.id);
     redirect("/dashboard"); // go to a protected page
   };
 

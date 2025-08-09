@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { checkAuth } from "@/app/lib/auth/checkAuth";
-import { createClient } from "@/app/lib/supabase/client";
+import { checkAuth } from "@/lib/auth/checkAuth";
+import { createClient } from "@/lib/supabase/client";
 
 export default function DashboardPage() {
   const supabase = createClient();
@@ -14,7 +14,7 @@ export default function DashboardPage() {
 
   const handleDelete = async (id: number) => {
     if (confirm("Are you sure you want to delete this job?")) {
-      const { data, error } = await supabase
+      await supabase
       .from('jobs')
       .delete()
       .eq('id', id) // choose the row(s) to delete
@@ -49,12 +49,20 @@ export default function DashboardPage() {
     <main className="max-w-4xl mx-auto mt-10 p-6">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold">Your Job Posts</h1>
-        <Link
+        <div className="flex gap-3">
+          <Link
           href="/jobs/add"
           className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
         >
           Create New Job
         </Link>
+        <Link
+          href="/"
+          className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700"
+        >
+          Job Listing
+        </Link>
+        </div>
       </div>
 
       {jobs.length > 0 ? (
