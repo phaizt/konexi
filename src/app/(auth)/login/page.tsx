@@ -72,18 +72,26 @@ export default function LoginPage() {
           <div className="flex items-center justify-between text-sm">
             {error && <p className="text-sm text-red-600 mt-2">{error}</p>}
           </div>
-          <button
-            type="submit"
-            disabled={!!error?.length || loading}
-            className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
-          >
-            Sign In
-            {loading && (
-              <div className="flex items-center justify-center">
-                <div className="h-6 w-6 animate-spin rounded-full border-2 border-white border-t-transparent"></div>
-              </div>
-            )}
-          </button>
+          <div className="flex justify-between w-full gap-5">
+            <button
+              type="submit"
+              disabled={!!error?.length || loading}
+              className="w-full h-full bg-blue-600 text-white rounded-md hover:bg-blue-700 transition py-2 cursor-pointer flex gap-3 justify-center"
+            >
+              Sign In
+              {loading && (
+                <div className="flex items-center justify-center">
+                  <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent"></div>
+                </div>
+              )}
+            </button>
+            <Link
+              href="/"
+              className="w-full h-full bg-red-600 text-white rounded-md hover:bg-red-700 transition py-2 text-center"
+            >
+              Cancel
+            </Link>
+          </div>
         </form>
         <p className="mt-4 text-sm text-center text-gray-600">
           Don&apos;t have an account?
