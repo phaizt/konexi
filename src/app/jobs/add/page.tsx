@@ -50,6 +50,9 @@ export default function NewJobPage() {
       location: "",
       type: "Full-Time",
     });
+    if(error){
+      setMessage(error.message)
+    }
   };
 
   return (

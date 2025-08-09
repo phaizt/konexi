@@ -12,7 +12,7 @@ export default function JobDetailsPage() {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [job, setJob] = useState<any>(null);
-  const [userId, setUserId] = useState("");
+  const [, setUserId] = useState("");
 
   useEffect(() => {
     (async () => {
@@ -34,7 +34,7 @@ export default function JobDetailsPage() {
       if (error) console.error(error);
       else setJob(data);
     })();
-  }, [supabase]);
+  }, [supabase, id]);
 
   if (!job) {
     return (

@@ -20,7 +20,7 @@ export default function JobDetailsPage() {
     location: job?.location ?? "",
     type: job?.type ?? "Full-Time",
   }));
-  const [userId, setUserId] = useState("");
+  const [, setUserId] = useState("");
 
   useEffect(() => {
     (async () => {
@@ -37,15 +37,13 @@ export default function JobDetailsPage() {
         .eq("id", id)
         .single(); // filter by user_id column
 
-      console.log(data);
-
       if (error) console.error(error);
       else {
         setJob(data);
         setForm(data);
       }
     })();
-  }, [supabase]);
+  }, [supabase, id]);
 
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -77,7 +75,7 @@ export default function JobDetailsPage() {
     setError(null);
     setSaving(true);
 
-    const { data, error } = await supabase
+    const { error } = await supabase
       .from("jobs")
       .update({ ...form })
       .eq("id", id); // choose the row(s) to update

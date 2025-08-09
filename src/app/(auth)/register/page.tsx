@@ -19,7 +19,7 @@ export default function LoginPage() {
     e.preventDefault();
     // TODO: Handle login logic here
     if (!error) {
-      const { data, error } = await supabase.auth.signUp({
+      const { error } = await supabase.auth.signUp({
         email,
         password,
         // kirim ke dashboard setelah verifikasi email (sesuai pengaturan Supabase)

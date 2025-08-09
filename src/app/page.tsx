@@ -3,32 +3,27 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
-import { checkAuth } from "@/lib/auth/checkAuth";
 import { redirect } from "next/navigation";
 
-type SearchParams = {
-  location?: string;
-  type?: "Full-Time" | "Part-Time" | "Contract" | string;
-};
 
-export default function JobListPage({
-  searchParams,
-}: {
-  searchParams: SearchParams;
-}) {
+export default function JobListPage() {
   const supabase = createClient();
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [jobs, setJobs] = useState<any[]>([]);
   const [type, setType] = useState("");
   const [location, setLocation] = useState("");
-  const [userId, setUserId] = useState<string>(localStorage.getItem("user_id") ?? "");
+  const [userId, setUserId] = useState<string>("");
 
   const handleLogout = async () => {
     await supabase.auth.signOut()
     localStorage.removeItem('user_id');
     redirect('/login')
   };
+
+  useEffect(() => {
+    setUserId(localStorage.getItem("user_id") ?? "")
+  }, [])
 
   useEffect(() => {
     (async () => {
